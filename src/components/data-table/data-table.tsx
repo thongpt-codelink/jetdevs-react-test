@@ -4,7 +4,7 @@ import { IDatum } from "../../types/data";
 import { sortData } from "../../helpers/data";
 import { BREAKPOINTS, COLORS, STYLES } from "../../constants/ui";
 import { AnimatedScore } from "../user/score";
-import { RankBadge } from "../user/rank-badge";
+import { AvatarWithBadge } from "../user/avatar";
 
 const ROW_HEIGHT_IN_REM = 3;
 const BORDER_RADIUS = "1rem";
@@ -38,10 +38,11 @@ export const DataTable: FC<DataTableProps> = ({ data = [], initData = [] }) => {
               ref={(ele) => (itemsRef.current[userId] = ele)}
             >
               <Cell flex="2">
-                <AvatarContainer>
-                  <Avatar src={picture} alt={displayName} />
-                  <RankBadge rank={currentRank} />
-                </AvatarContainer>
+                <AvatarWithBadge
+                  name={displayName}
+                  avatarUrl={picture}
+                  rank={currentRank}
+                />
                 <DisplayName>{displayName}</DisplayName>
               </Cell>
               <Cell flex="1" justifyContent="flex-end" gap="0.5rem">
@@ -129,16 +130,4 @@ const Row = styled.div<RowProps>`
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
   transition-duration: 200ms;
   border-bottom: 1px solid ${COLORS.neutral[300]};
-`;
-
-const Avatar = styled.img`
-  height: 2rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  background-color: ${COLORS.white};
-  ${STYLES.boxShadow}
-`;
-
-const AvatarContainer = styled.div`
-  position: relative;
 `;
