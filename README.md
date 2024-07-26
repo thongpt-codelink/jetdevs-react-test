@@ -20,3 +20,7 @@
 - `styled-components` and `create-react-app` are not popular lately, which requires time to review and ramp up
 4. Do you have any advice for our homework?
 - the choice on starter kit should be more flexible, with options like `react-next-app` or `vite`. The required one, `react-react-app` is quite outdated and have some unresolved issues.
+
+## Compilation result
+
+![compilation result](/compilation-result.png)
