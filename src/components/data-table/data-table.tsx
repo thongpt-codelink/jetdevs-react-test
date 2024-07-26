@@ -3,6 +3,7 @@ import { FC, useEffect, useRef } from "react";
 import { IDatum } from "../../types/data";
 import { sortData } from "../../helpers/data";
 import { BREAKPOINTS, COLORS, STYLES } from "../../constants/ui";
+import { AnimatedScore } from "../user/score";
 
 const ROW_HEIGHT_IN_REM = 3;
 const BORDER_RADIUS = "1rem";
@@ -37,7 +38,7 @@ export const DataTable: FC<DataTableProps> = ({ data = [], initData = [] }) => {
                 <DisplayName>{displayName}</DisplayName>
               </Cell>
               <Cell flex="1" justifyContent="flex-end" gap="0.5rem">
-                <span>{score}</span>
+                <AnimatedScore score={score.toString()} />
                 <HelperText>points</HelperText>
               </Cell>
             </Row>
